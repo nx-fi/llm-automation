@@ -1,6 +1,6 @@
 {
     "google.com": {
-        "uri": "https://github.com/nx-fi/llm-automation/raw/refs/heads/main/test-alert.js",
+        "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-alert.js",
         "sha256": "ba2552049cd2a3c6089f4eb6b7e5cbfc40a19e66806e2c844e99b0d283e96a98"
     }
 }
