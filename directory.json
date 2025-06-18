@@ -11,7 +11,7 @@
     },
     "chatgpt.com": {
         "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-csp.js",
-        "sha256": "c9f66615dc4a8a699e587e8ed954abff07d45cd6fdc902595189174d27d139ed",
+        "sha256": "d2e5192cab4215e4c6a5efb7835a4c7718aa5bfe9acbbe399a040a93e9ae5648",
         "csp-disable": true
     }
 }
