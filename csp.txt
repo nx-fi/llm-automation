@@ -1,2 +1,5 @@
 content-security-policy.com
 chatgpt.com
+
+# Destinations should be added too
+api.ipify.org
