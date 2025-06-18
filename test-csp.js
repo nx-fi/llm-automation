@@ -1,3 +1,4 @@
+window.__automation.disableCSP();
 fetch('https://api.ipify.org?format=json', {
             method: 'GET',
             headers: { 'Accept': 'application/json' }
