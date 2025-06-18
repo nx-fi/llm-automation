@@ -8,5 +8,10 @@
         "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-alert-csp-disable.js",
         "sha256": "3066a30a819edfd1df66f545dc0e411f60107fd99173948946b7d9a72f46bbaf",
         "csp-disable": true
+    },
+    "chatgpt.com": {
+        "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-csp.js",
+        "sha256": "c9f66615dc4a8a699e587e8ed954abff07d45cd6fdc902595189174d27d139ed",
+        "csp-disable": true
     }
 }
