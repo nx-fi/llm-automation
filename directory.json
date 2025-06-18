@@ -1,6 +1,7 @@
 {
     "google.com": {
         "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-alert.js",
-        "sha256": "5879ed99c653fbbe2795c3e402c471d402b1007197b8ba741ced8a6664741085"
+        "sha256": "5879ed99c653fbbe2795c3e402c471d402b1007197b8ba741ced8a6664741085",
+        "disable-csp": true
     }
 }
