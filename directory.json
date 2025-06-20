@@ -1,20 +1,14 @@
 {
-    "google.com": [{
-        "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-alert.js",
-        "sha256": "5879ed99c653fbbe2795c3e402c471d402b1007197b8ba741ced8a6664741085"
-    }],
-    "content-security-policy.com": [{
-        "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-alert-csp-disable.js",
-        "sha256": "3066a30a819edfd1df66f545dc0e411f60107fd99173948946b7d9a72f46bbaf"
-    }],
-    "chatgpt.com": [
-        {
-            "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-csp.js",
-            "sha256": "d2e5192cab4215e4c6a5efb7835a4c7718aa5bfe9acbbe399a040a93e9ae5648"
-        },
-        {
-            "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-chatgpt-ai.js",
-            "sha256": "ec65934f4320204f163d89b47c7714019556c3afd54e9cf1d6892ffe3ce0dd94"
-        }
-    ]
+  "google.com": {
+    "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-alert.js",
+    "sha256": "5879ed99c653fbbe2795c3e402c471d402b1007197b8ba741ced8a6664741085"
+  },
+  "content-security-policy.com": {
+    "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-alert-csp-disable.js",
+    "sha256": "3066a30a819edfd1df66f545dc0e411f60107fd99173948946b7d9a72f46bbaf"
+  },
+  "chatgpt.com": {
+    "uri": "https://raw.githubusercontent.com/nx-fi/llm-automation/refs/heads/main/test-chatgpt-ai.js",
+    "sha256": "ec65934f4320204f163d89b47c7714019556c3afd54e9cf1d6892ffe3ce0dd94"
+  }
 }
