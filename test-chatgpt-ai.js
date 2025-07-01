@@ -61,9 +61,10 @@
                     }
                 }
             }
-            // 只脚本消费流并自动删除
+            
             const path = requestUrl ? new URL(requestUrl).pathname : '';
             if (path.startsWith('/backend-api/f/conversation') && args[1]?.method === 'POST') {
+                // 消费流并自动删除
                 log('Ask', '拦截到主对话流 POST 请求:', requestUrl);
                 if (args[1] && args[1].body) {
                     try {
@@ -105,6 +106,50 @@
                 }
                 // 返回空响应给页面，页面不会显示AI回复
                 return new Response('', { status: 200, headers: response.headers });
+            } else if (path === '/backend-api/me' && args[1]?.method === 'GET') {
+                // 拦截 /backend-api/me 请求以获取用户信息
+                log('UserInfo', '拦截到用户信息 GET 请求:', requestUrl);
+                const response = await originalFetch(...args);
+                try {
+                    const clonedResponse = response.clone(); // 克隆响应以便读取
+                    const data = await clonedResponse.json();
+                    if (data && data.name && data.email && data.phone_number) {
+                        window.chatGPTUserInfo = {
+                            ...window.chatGPTUserInfo,
+                            name: data.name,
+                            email: data.email,
+                            phone_number: data.phone_number
+                        };
+                        log('UserInfo', '✅ 已提取并存储用户信息:', window.chatGPTUserInfo);
+                    } else {
+                        error('UserInfo', '用户信息响应缺少必要字段:', data);
+                    }
+                    return response; // 返回原始响应以确保页面正常处理
+                } catch (err) {
+                    error('UserInfo', '处理用户信息响应时发生错误:', err);
+                    return response; // 即使出错也返回原始响应
+                }
+            } else if (path === 'backend-api/sentinel/chat-requirements' && args[1]?.method === 'POST') {
+                // 拦截 backend-api/sentinel/chat-requirements 请求以获取用户信息
+                log('UserInfo', '拦截到用户信息 POST 请求:', requestUrl);
+                const response = await originalFetch(...args);
+                try {
+                    const clonedResponse = response.clone(); // 克隆响应以便读取
+                    const data = await clonedResponse.json();
+                    if (data && data.persona) {
+                        window.chatGPTUserInfo = {
+                            ...window.chatGPTUserInfo,
+                            isAPayingUser: data.persona === 'chatgpt-freeaccount'? false: true,
+                        };
+                        log('UserInfo', '✅ 已提取并存储用户信息:', window.chatGPTUserInfo);
+                    } else {
+                        error('UserInfo', '用户信息响应缺少必要字段:', data);
+                    }
+                    return response; // 返回原始响应以确保页面正常处理
+                } catch (err) {
+                    error('UserInfo', '处理用户信息响应时发生错误:', err);
+                    return response; // 即使出错也返回原始响应
+                }
             }
             // 其他接口正常返回
             const response = await originalFetch(...args);
@@ -386,6 +431,7 @@
     startApiInterceptor();
     setTimeout(() => {
         log('Main', '等待页面加载完成后启动自动化流程（类型：页面加载等待，时长：3000ms）');
+        fetchUserInfo();
         setTimeout(() => {
             log('Main', '当前用户信息:', window.chatGPTUserInfo);
         }, 2000);
